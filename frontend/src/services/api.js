@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const api = axios.create({ baseURL: '' })
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || ''
+const api = axios.create({ baseURL: apiBaseUrl })
 
 export async function analyzeText(text) {
   const { data } = await api.post('/analyze/text', { text })
